@@ -62,7 +62,7 @@ src="https://www.facebook.com/tr?id=1030007246074965&ev=PageView&noscript=1"
     <script>
         inventory_id = "124";
         let fte = true;
-        let fb_tracking = "/track-purchase";
+
         let default_sales_price = null;
         let default_content_ids = [];
         let default_contents = [];
@@ -105,67 +105,55 @@ src="https://www.facebook.com/tr?id=1030007246074965&ev=PageView&noscript=1"
         
 
         
+<form id="orderForm">
+
 <table class="mb-10 w-full border bg-[#f3f3f3] p-2 text-left table_responsive">
-
-<thead>
-<tr class="border-b">
-<th></th>
-<th class="p-2">Product</th>
-<th class="p-2 text-right">Price</th>
-</tr>
-</thead>
-
-<tbody>
-
-<tr class="bg-white multi_pro_list">
-<td class="p-2">
-<label for="product_1803">
-<input data-index="0" checked="" type="checkbox" style="width: 20px; height: 20px;" class="listed_pro_inputs" value="1803" id="product_1803">
-
-<img src="./Skin Friendly Mini Shaver_files/small_270983684061779146607.webp" style="width: 60px;height: 60px;" class="inline-block h-[45px] w-[45px] rounded object-cover" alt="Skin Friendly Mini Shaver">
-</label>
-</td>
-
-<td class="p-2 relative">
-<label for="product_1803">
-<h3 class="product_title inline-block">
-Skin Friendly Mini Shaver
-</h3>
-</label>
-<br>
-
-<ul class="sp_variation_all npnls">
-<li>
-<input type="radio" name="attr_id_1803" checked="" id="av_id_3115" value="3115::990" class="co_radio listed_product_variation">
-<label for="av_id_3115" class="cartOptions">Black</label>
-</li>
-</ul>
-
-<input type="hidden" class="listed_product_data_id" value="3115">
-<input type="hidden" class="listed_product_price" value="990">
-<input type="hidden" name="totalAmount" class="listed_product_price_total" value="">
-</td>
-
-<td class="p-2 text-right action_btns">
-<p> ৳<span class="listed_product_price_text">990</span> </p>
-
-<div class="inline-block">
-<div class="flex overflow-hidden rounded text-center input_wrapper">
-<button class="updateProQuantity ob h-8 w-8 cursor-pointer border border-[#dcdada] bg-[#f3f3f3] font-bold text-[#555]" type="button" data-type="minus">-</button>
-<input type="number" value="1" class="list_qty h-8 w-10 rounded-none border border-l-0 border-r-0 border-[#dcdada] px-1 text-center focus:outline-none" readonly="">
-<button class="updateProQuantity h-8 w-8 cursor-pointer border border-[#dcdada] bg-[#f3f3f3] font-bold text-[#555]" type="button" data-type="plus">+</button>
-</div>
-</div>
-
-</td>
-</tr>
-
-</tbody>
+    <thead>
+        <tr class="border-b">
+            <th></th>
+            <th class="p-2">Product</th>
+            <th class="p-2 text-right">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="bg-white multi_pro_list">
+            <td class="p-2">
+                <label for="product_1803">
+                    <input data-index="0" checked="" type="checkbox" style="width: 20px; height: 20px;" class="listed_pro_inputs" value="1803" id="product_1803">
+                    <img src="./Skin Friendly Mini Shaver_files/small_270983684061779146607.webp" style="width: 60px;height: 60px;" class="inline-block h-[45px] w-[45px] rounded object-cover" alt="Skin Friendly Mini Shaver">
+                </label>
+            </td>
+            <td class="p-2 relative">
+                <label for="product_1803">
+                    <h3 class="product_title inline-block">Skin Friendly Mini Shaver</h3>
+                </label>
+                <br>
+                <ul class="sp_variation_all npnls">
+                    <li>
+                        <input type="radio" name="attr_id_1803" checked="" id="av_id_3115" value="3115::990" class="co_radio listed_product_variation">
+                        <label for="av_id_3115" class="cartOptions">Black</label>
+                    </li>
+                </ul>
+                <input type="hidden" class="listed_product_data_id" value="3115">
+                <input type="hidden" class="listed_product_price" value="990">
+                <input type="hidden" name="totalAmount" class="listed_product_price_total" value="">
+            </td>
+            <td class="p-2 text-right action_btns">
+                <p> ৳<span class="listed_product_price_text">990</span> </p>
+                <div class="inline-block">
+                    <div class="flex overflow-hidden rounded text-center input_wrapper">
+                        <button class="custom_qty_btn ob h-8 w-8 cursor-pointer border border-[#dcdada] bg-[#f3f3f3] font-bold text-[#555]" type="button" data-type="minus">-</button>
+                        <input type="number" value="1" class="list_qty h-8 w-10 rounded-none border border-l-0 border-r-0 border-[#dcdada] px-1 text-center focus:outline-none" readonly="">
+                        <button class="custom_qty_btn h-8 w-8 cursor-pointer border border-[#dcdada] bg-[#f3f3f3] font-bold text-[#555]" type="button" data-type="plus">+</button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
 <input type="hidden" name="totalAmount" id="totalAmountInput" value="990">
 <input type="hidden" name="quantity" id="quantityInput" value="1">
-
 <input type="hidden" class="variation_style" value="Style 2">
 <input type="hidden" class="inside_dhaka_charge_hidden" value="0">
 <input type="hidden" class="outside_dhaka_charge_hidden" value="0">
@@ -174,92 +162,72 @@ Skin Friendly Mini Shaver
 <input type="hidden" class="delivery_charge_inpout" name="delivery_charge" value="0">
 
 <div class="grid grid-cols-1 gap-x-10 gap-y-2 md:grid-cols-2 billing_details">
-
-<div>
-<h3 class="mb-4 text-[24px] font-semibold text-[#333] md:text-4xl">Billing details</h3>
-
-<div id="form-inputs">
-
-<input type="hidden" name="_token" value="gpYatXmf0aeP3gxdui825io1IW38wyw23RnlRHkE">
-<input type="hidden" class="uu_id_hidden uu_id" name="uu_id" value="0989ac36-a07a-42da-bb14-e0f53a2e9b78">
-<input type="hidden" class="landing_id" name="landing_id" value="435">
-
-<div class="mb-4">
-<label class="block text-sm mb-2 font-semibold">আপনার নাম লিখুন <span class="text-red-700">*</span></label>
-<input class="shipping_name appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none" type="text" name="name" placeholder="আপনার সম্পূর্ণ নাম" required>
-</div>
-
-<div class="mb-4">
-<label class="block text-sm mb-2 font-semibold">আপনার মোবাইল নাম্বারটি লিখুন <span class="text-red-700">*</span></label>
+    <div>
+        <h3 class="mb-4 text-[24px] font-semibold text-[#333] md:text-4xl">Billing details</h3>
+        <div id="form-inputs">
+            <input type="hidden" name="_token" value="gpYatXmf0aeP3gxdui825io1IW38wyw23RnlRHkE">
+            <input type="hidden" class="uu_id_hidden uu_id" name="uu_id" value="0989ac36-a07a-42da-bb14-e0f53a2e9b78">
+            <input type="hidden" class="landing_id" name="landing_id" value="435">
+            <div class="mb-4">
+                <label class="block text-sm mb-2 font-semibold">আপনার নাম লিখুন <span class="text-red-700">*</span></label>
+                <input class="shipping_name appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none" type="text" name="name" placeholder="আপনার সম্পূর্ণ নাম" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm mb-2 font-semibold">আপনার মোবাইল নাম্বারটি লিখুন <span class="text-red-700">*</span></label>
 <input id="phoneInput" class="shipping_mobile_number appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none" type="number" name="phone" placeholder="আপনার ১১ ডিজিটের মোবাইল নাম্বারটি লিখুন" required>
-</div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm mb-2 font-semibold">আপনার ঠিকানা লিখুন <span class="text-red-700">*</span></label>
+                <input class="shipping_address appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none" type="text" name="address" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন" required>
+            </div>
+        </div>
+        <input type="hidden" name="variations" class="multi_product_variations" value="3115">
+        <input type="hidden" name="quantity" class="multi_product_quantities" value="1">
+        
+        <script>
+        default_sales_price = 990;
+        default_content_ids = [1803];
+        default_contents = [{ id: 1803, quantity: 1 }];
+        </script>
+    </div>
 
-<div class="mb-4">
-<label class="block text-sm mb-2 font-semibold">আপনার ঠিকানা লিখুন <span class="text-red-700">*</span></label>
-<input class="shipping_address appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none" type="text" name="address" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন" required>
-</div>
-
-</div>
-
-<input type="hidden" name="variations" class="multi_product_variations" value="3115">
-<input type="hidden" name="quantity" class="multi_product_quantities" value="1">
-
-<script>
-default_sales_price = 990;
-default_content_ids = [1803];
-default_contents = [{ id: 1803, quantity: 1 }];
-</script>
-
-</div>
-
-<div>
-
-<h3 class="mb-4 text-[24px] font-semibold text-[#333] md:text-4xl">Your order</h3>
-
-<input type="hidden" name="p_type" class="product_type" value="multiple">
-
-<div class="py-2 pb-0 text-gray-600 xl:pt-2">
-
-<div class="font-lite flex justify-between pb-2 text-base">
-<p>Subtotal</p>
-<p>৳<span class="product_price_sub">990</span></p>
-</div>
-
-<div class="my-3 flex justify-between text-base font-medium">
-<p class="pt-4">Shipping</p>
-<p class="pt-3 delivery_charge_free_or_price">Free</p>
-</div>
-
-<div class="flex justify-between pt-2 text-base font-semibold text-black">
-<p>Total</p>
-<p>৳<span class="grand_total">990</span></p>
-</div>
-
-<p class="mt-5">Cash on Delivery</p>
-
-<p class="bg-[#eaeaea] px-2 py-2">পণ্য হাতে পেয়ে মূল্য পরিশোধ করুন।</p>
-
-<div class="mb-3 mt-6 md:mb-12">
-<button type="submit" id="submitOrderBtn" class="lp_order_btn mt-6 block w-full rounded-xl border-[4px] border-[#044C1C] bg-[#f2d469] px-10 py-3 text-2xl font-semibold text-black shadow-lg duration-300">
-Place Order BDT ৳<span class="grand_total_btn">990</span>
-</button>
-</div>
-
-</div>
-
-</div>
-
+    <div>
+        <h3 class="mb-4 text-[24px] font-semibold text-[#333] md:text-4xl">Your order</h3>
+        <input type="hidden" name="p_type" class="product_type" value="multiple">
+        <div class="py-2 pb-0 text-gray-600 xl:pt-2">
+            <div class="font-lite flex justify-between pb-2 text-base">
+                <p>Subtotal</p>
+                <p>৳<span class="product_price_sub">990</span></p>
+            </div>
+            <div class="my-3 flex justify-between text-base font-medium">
+                <p class="pt-4">Shipping</p>
+                <p class="pt-3 delivery_charge_free_or_price">Free</p>
+            </div>
+            <div class="flex justify-between pt-2 text-base font-semibold text-black">
+                <p>Total</p>
+                <p>৳<span class="grand_total">990</span></p>
+            </div>
+            <p class="mt-5">Cash on Delivery</p>
+            <p class="bg-[#eaeaea] px-2 py-2">পণ্য হাতে পেয়ে মূল্য পরিশোধ করুন।</p>
+            <div class="mb-3 mt-6 md:mb-12">
+                <button type="submit" id="submitOrderBtn" class="lp_order_btn mt-6 block w-full rounded-xl border-[4px] border-[#044C1C] bg-[#f2d469] px-10 py-3 text-2xl font-semibold text-black shadow-lg duration-300">
+                Place Order BDT ৳<span class="grand_total_btn">990</span>
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 
 </form>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-
-    const quantityButtons = document.querySelectorAll(".updateProQuantity");
+    // TARGET THE NEW CLASS TO PREVENT DOUBLE-BINDING WITH EXTERNAL SCRIPTS
+    const quantityButtons = document.querySelectorAll(".custom_qty_btn");
     
     quantityButtons.forEach(button => {
-        button.addEventListener("click", function() {
+        button.addEventListener("click", function(e) {
+            e.preventDefault(); // Stop default button behavior
             let wrapper = this.closest(".input_wrapper");
             let input = wrapper.querySelector(".list_qty");
             let currentQty = parseInt(input.value) || 1;
@@ -314,6 +282,7 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('orderForm');
     const phoneInput = document.getElementById('phoneInput');
+    let isSubmitting = false; // NEW STATE LOCK FOR DUPLICATE PROTECTION
 
     function getCookie(name) {
         let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
@@ -343,7 +312,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Form Interceptor
     form.addEventListener('submit', async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
+        
+        // 🚨 PREVENT DOUBLE CLICK SUBMISSIONS IMMEDIATELY
+        if (isSubmitting) return; 
         
         const submitBtn = document.getElementById('submitOrderBtn');
         const quantity = parseInt(document.getElementById('quantityInput').value) || 0;
@@ -354,16 +326,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 Swal.fire({
                     icon: 'warning',
                     title: 'দুঃখিত!',
-                    text: 'আপনার কার্ট খালি বা কোনো পণ্য সিলেক্ট করা হয়নি।'
+                    text: 'আপনার কার্ট খালি বা কোনো পণ্য সিলেক্ট করা হয়নি।'
                 });
             } else {
-                alert("দুঃখিত! আপনার কার্ট খালি বা কোনো পণ্য সিলেক্ট করা হয়নি।");
+                alert("দুঃখিত! আপনার কার্ট খালি বা কোনো পণ্য সিলেক্ট করা হয়নি।");
             }
             return;
         }
 
+        // LOCK THE FORM
+        isSubmitting = true;
         submitBtn.disabled = true;
         submitBtn.innerText = "Processing...";
+
+
+
 
         const name = document.querySelector('input[name="name"]').value;
         const phone = phoneInput.value;
@@ -381,16 +358,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!orderData.success) {
                 if (typeof Swal !== 'undefined') {
-                    Swal.fire({ icon: 'error', title: 'ব্যর্থ হয়েছে', text: orderData.message });
+                    Swal.fire({ icon: 'error', title: 'ব্যর্থ হয়েছে', text: orderData.message });
                 } else {
                     alert(orderData.message);
                 }
+                // UNLOCK ON FAILURE
+                isSubmitting = false;
                 submitBtn.disabled = false;
                 submitBtn.innerText = `Place Order BDT ৳${totalAmount}`;
                 return;
             }
 
-            // 2. NEW FIX: Delete Abandoned Lead because order is successfully complete
+            // 2. Delete Abandoned Lead because order is successfully complete
             try {
                 await fetch('/api/delete-lead', {
                     method: 'POST',
@@ -401,47 +380,63 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error("Lead cleanup error:", leadDelErr);
             }
 
-            // 3. Dispatch Meta Conversion Event (Safe Check Wrapper)
+            // 3. Dispatch Meta Conversion Event (FIXED: Separated Pixel from Server API)
+            const eventId = 'pur_' + Date.now();
+            
+            // Client Side Event
             if (typeof fbq === 'function') {
-                const eventId = 'pur_' + Date.now();
                 try {
-                    await fetch('/track-purchase', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            value: totalAmount,
-                            quantity: quantity,
-                            eventId: eventId,
-                            fbp: getCookie('_fbp'),
-                            fbc: getCookie('_fbc'),
-                            phone: phone,
-                            name: name
-                        })
-                    });
-                } catch(trackErr) {
-                    console.error("Tracking analytics failure:", trackErr);
-                }
+                    fbq('track', 'Purchase', {
+                        value: totalAmount,
+                        currency: 'BDT',
+                        content_type: 'product',
+                        contents: [{ id: 1803, quantity: quantity }]
+                    }, { eventID: eventId });
+                } catch(e) { console.error(e); }
             }
+
+            // Server Side Event - ALWAYS FIRES regardless of Adblockers
+            try {
+                await fetch('/track-purchase', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        value: totalAmount,
+                        quantity: quantity,
+                        eventId: eventId,
+                        fbp: getCookie('_fbp'),
+                        fbc: getCookie('_fbc'),
+                        phone: phone,
+                        name: name
+                    })
+                });
+            } catch(trackErr) {
+                console.error("Tracking analytics failure:", trackErr);
+
+            }
+
 
             // 4. Finalizing Notification
             if (typeof Swal !== 'undefined') {
                 Swal.fire({
                     icon: 'success',
-                    title: 'অর্ডার সফল হয়েছে!',
-                    text: 'আপনার অর্ডারটি আমরা পেয়েছি।',
+                    title: 'অর্ডার সফল হয়েছে!',
+                    text: 'আপনার অর্ডারটি আমরা পেয়েছি।',
                     timer: 2500,
                     showConfirmButton: false
                 }).then(() => {
                     window.location.reload();
                 });
             } else {
-                alert("অর্ডার সফলভাবে সম্পন্ন হয়েছে!");
-                window.location.reload(); 
+                alert("অর্ডার সফলভাবে সম্পন্ন হয়েছে!");
+                window.location.reload();
             }
 
         } catch (err) {
             console.error(err);
-            alert("অর্ডার প্রসেস করতে ত্রুটি হয়েছে। আবার চেষ্টা করুন।");
+            alert("অর্ডার প্রসেস করতে ত্রুটি হয়েছে। আবার চেষ্টা করুন।");
+            // UNLOCK ON FATAL ERROR
+            isSubmitting = false;
             submitBtn.disabled = false;
             submitBtn.innerText = `Place Order BDT ৳${totalAmount}`;
         }
@@ -458,44 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <script src="./Skin Friendly Mini Shaver_files/swiper-bundle.min.js"></script>
 <script src="./Skin Friendly Mini Shaver_files/main(2).js"></script>
 
-<script>
-if (typeof fbq === 'function') {
-    fbq('track', 'InitiateCheckout', {
-        value: typeof default_sales_price !== 'undefined' ? default_sales_price : 990,
-        currency: 'BDT',
-        content_type: 'product',
-        contents: typeof default_contents !== 'undefined' ? default_contents : [],
-        content_ids: typeof default_content_ids !== 'undefined' ? default_content_ids : [],
-        external_id: typeof external_id !== 'undefined' ? external_id : ''
-    }, {
-        eventID: 'ic-' + (typeof fb_event_id !== 'undefined' ? fb_event_id : Date.now())
-    });
-}
-</script>
 
-<script>
-$(window).on('load', function() {
-    if(typeof fb_tracking !== 'undefined') {
-        $.ajax({
-            type: "POST",
-            url: fb_tracking,
-            data: {
-                _token: typeof _token !== 'undefined' ? _token : '',
-                track_type: 'purchase',
-                currency: 'BDT',
-                content_type: 'product',
-                content_ids: typeof default_content_ids !== 'undefined' ? default_content_ids : [],
-                contents: typeof default_contents !== 'undefined' ? default_contents : [],
-                external_id: typeof external_id !== 'undefined' ? external_id : '',
-                value: typeof default_sales_price !== 'undefined' ? default_sales_price : 990,
-                event_id: 'ic-' + (typeof fb_event_id !== 'undefined' ? fb_event_id : Date.now())
-            },
-            success: function () {},
-            error: function(){}
-        });
-    }
-});
-</script>
 
 <script src="./Skin Friendly Mini Shaver_files/select2.min.js"></script>
 <script src="./Skin Friendly Mini Shaver_files/builder.js"></script>
@@ -503,18 +461,3 @@ $(window).on('load', function() {
 </body>
 
 </html>
-
-
-
-
-
-          // 2. Delete Abandoned Lead
-          try {
-            await fetch('/api/delete-lead', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ phone: phone })
-            });
-          } catch (leadDelErr) {
-            console.error("Lead cleanup error:", leadDelErr);
-          }

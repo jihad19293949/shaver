@@ -174,7 +174,7 @@ src="https://www.facebook.com/tr?id=1030007246074965&ev=PageView&noscript=1"
             </div>
             <div class="mb-4">
                 <label class="block text-sm mb-2 font-semibold">আপনার মোবাইল নাম্বারটি লিখুন <span class="text-red-700">*</span></label>
-                <input id="phoneInput" class="shipping_mobile_number appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none" type="number" name="phone" placeholder="আপনার ১১ ডিজিটের মোবাইল নাম্বারটি লিখুন" required>
+<input id="phoneInput" class="shipping_mobile_number appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none" type="number" name="phone" placeholder="আপনার ১১ ডিজিটের মোবাইল নাম্বারটি লিখুন" required>
             </div>
             <div class="mb-4">
                 <label class="block text-sm mb-2 font-semibold">আপনার ঠিকানা লিখুন <span class="text-red-700">*</span></label>
@@ -339,6 +339,9 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = true;
         submitBtn.innerText = "Processing...";
 
+
+
+
         const name = document.querySelector('input[name="name"]').value;
         const phone = phoneInput.value;
         const address = document.querySelector('input[name="address"]').value;
@@ -409,6 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             } catch(trackErr) {
                 console.error("Tracking analytics failure:", trackErr);
+
             }
 
 
@@ -449,44 +453,6 @@ document.addEventListener('DOMContentLoaded', () => {
 <script src="./Skin Friendly Mini Shaver_files/swiper-bundle.min.js"></script>
 <script src="./Skin Friendly Mini Shaver_files/main(2).js"></script>
 
-<script>
-if (typeof fbq === 'function') {
-    fbq('track', 'InitiateCheckout', {
-        value: typeof default_sales_price !== 'undefined' ? default_sales_price : 990,
-        currency: 'BDT',
-        content_type: 'product',
-        contents: typeof default_contents !== 'undefined' ? default_contents : [],
-        content_ids: typeof default_content_ids !== 'undefined' ? default_content_ids : [],
-        external_id: typeof external_id !== 'undefined' ? external_id : ''
-    }, {
-        eventID: 'ic-' + (typeof fb_event_id !== 'undefined' ? fb_event_id : Date.now())
-    });
-}
-</script>
-
-<script>
-$(window).on('load', function() {
-    if(typeof fb_tracking !== 'undefined') {
-        $.ajax({
-            type: "POST",
-            url: fb_tracking,
-            data: {
-                _token: typeof _token !== 'undefined' ? _token : '',
-                track_type: 'purchase',
-                currency: 'BDT',
-                content_type: 'product',
-                content_ids: typeof default_content_ids !== 'undefined' ? default_content_ids : [],
-                contents: typeof default_contents !== 'undefined' ? default_contents : [],
-                external_id: typeof external_id !== 'undefined' ? external_id : '',
-                value: typeof default_sales_price !== 'undefined' ? default_sales_price : 990,
-                event_id: 'ic-' + (typeof fb_event_id !== 'undefined' ? fb_event_id : Date.now())
-            },
-            success: function () {},
-            error: function(){}
-        });
-    }
-});
-</script>
 
 
 <script src="./Skin Friendly Mini Shaver_files/select2.min.js"></script>
