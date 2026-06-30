@@ -1,0 +1,528 @@
+.build_common .-my-6 {
+    margin-top: -1.5rem;
+    margin-bottom: -1.5rem
+}
+
+.build_common .my-3 {
+    margin-top: .75rem;
+    margin-bottom: .75rem
+}
+
+.build_common .mb-0 {
+    margin-bottom: 0
+}
+
+.build_common .mb-2 {
+    margin-bottom: .5rem
+}
+
+.build_common .mb-3 {
+    margin-bottom: .75rem
+}
+
+.build_common .mb-4 {
+    margin-bottom: 1rem
+}
+
+.build_common .mb-8 {
+    margin-bottom: 2rem
+}
+
+.build_common .ml-4 {
+    margin-left: 1rem
+}
+
+.build_common .mt-1 {
+    margin-top: .25rem
+}
+
+.build_common .mt-5 {
+    margin-top: 1.25rem
+}
+
+.build_common .mt-6 {
+    margin-top: 1.5rem
+}
+
+.build_common .block {
+    display: block
+}
+
+.build_common .inline-block {
+    display: inline-block
+}
+
+.build_common .flex {
+    display: flex
+}
+
+.build_common .table {
+    display: table
+}
+
+.build_common .flow-root {
+    display: flow-root
+}
+
+.build_common .grid {
+    display: grid
+}
+
+.build_common .contents {
+    display: contents
+}
+
+.build_common .hidden {
+    display: none
+}
+
+.build_common .h-16 {
+    height: 4rem
+}
+
+.build_common .h-20 {
+    height: 5rem
+}
+
+.build_common .h-8 {
+    height: 2rem
+}
+
+.build_common .h-full {
+    height: 100%
+}
+
+.build_common .w-10 {
+    width: 2.5rem
+}
+
+.build_common .w-16 {
+    width: 4rem
+}
+
+.build_common .w-20 {
+    width: 5rem
+}
+
+.build_common .w-8 {
+    width: 2rem
+}
+
+.build_common .w-full {
+    width: 100%
+}
+
+.build_common .flex-1 {
+    flex: 1 1 0%
+}
+
+.build_common .flex-shrink-0 {
+    flex-shrink: 0
+}
+
+.build_common .cursor-pointer {
+    cursor: pointer
+}
+
+.build_common .appearance-none {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
+}
+
+.build_common .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr))
+}
+
+.build_common .flex-col {
+    flex-direction: column
+}
+
+.build_common .items-center {
+    align-items: center
+}
+
+.build_common .justify-between {
+    justify-content: space-between
+}
+
+.build_common .gap-2 {
+    gap: .5rem
+}
+
+.build_common .gap-x-10 {
+    -moz-column-gap: 2.5rem;
+    column-gap: 2.5rem
+}
+
+.build_common .gap-y-2 {
+    row-gap: .5rem
+}
+
+.build_common .divide-y>:not([hidden])~:not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(1px * var(--tw-divide-y-reverse))
+}
+
+.build_common .divide-gray-200>:not([hidden])~:not([hidden]) {
+    --tw-divide-opacity: 1;
+    border-color: rgb(229 231 235 / var(--tw-divide-opacity))
+}
+
+.build_common .overflow-auto {
+    overflow: auto
+}
+
+.build_common .overflow-hidden {
+    overflow: hidden
+}
+
+.build_common .whitespace-nowrap {
+    white-space: nowrap
+}
+
+.build_common .rounded {
+    border-radius: .25rem
+}
+
+.build_common .rounded-md {
+    border-radius: .375rem
+}
+
+.build_common .rounded-none {
+    border-radius: 0
+}
+
+.build_common .rounded-xl {
+    border-radius: .75rem
+}
+
+.build_common .border {
+    border-width: 1px
+}
+
+.build_common .border-\[4px\] {
+    border-width: 4px
+}
+
+.build_common .border-b {
+    border-bottom-width: 1px
+}
+
+.build_common .border-l-0 {
+    border-left-width: 0px
+}
+
+.build_common .border-r {
+    border-right-width: 1px
+}
+
+.build_common .border-r-0 {
+    border-right-width: 0px
+}
+
+.build_common .border-\[\#044C1C\] {
+    --tw-border-opacity: 1;
+    border-color: rgb(4 76 28 / var(--tw-border-opacity))
+}
+
+.build_common .border-\[\#dcdada\] {
+    --tw-border-opacity: 1;
+    border-color: rgb(220 218 218 / var(--tw-border-opacity))
+}
+
+.build_common .border-gray-200 {
+    --tw-border-opacity: 1;
+    border-color: rgb(229 231 235 / var(--tw-border-opacity))
+}
+
+.build_common .bg-\[\#eaeaea\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(234 234 234 / var(--tw-bg-opacity))
+}
+
+.build_common .bg-\[\#f2d469\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(242 212 105 / var(--tw-bg-opacity))
+}
+
+.build_common .bg-\[\#f3f3f3\] {
+    --tw-bg-opacity: 1;
+    background-color: rgb(243 243 243 / var(--tw-bg-opacity))
+}
+
+.build_common .bg-green-600 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(22 163 74 / var(--tw-bg-opacity))
+}
+
+.build_common .object-contain {
+    -o-object-fit: contain;
+    object-fit: contain
+}
+
+.build_common .object-cover {
+    -o-object-fit: cover;
+    object-fit: cover
+}
+
+.build_common .object-center {
+    -o-object-position: center;
+    object-position: center
+}
+
+.build_common .p-1\.5 {
+    padding: .375rem
+}
+
+.build_common .px-1 {
+    padding-left: .25rem;
+    padding-right: .25rem
+}
+
+.build_common .px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem
+}
+
+.build_common .px-2 {
+    padding-left: .5rem;
+    padding-right: .5rem
+}
+
+.build_common .px-3 {
+    padding-left: .75rem;
+    padding-right: .75rem
+}
+
+.build_common .py-2 {
+    padding-top: .5rem;
+    padding-bottom: .5rem
+}
+
+.build_common .py-3 {
+    padding-top: .75rem;
+    padding-bottom: .75rem
+}
+
+.build_common .py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem
+}
+
+.build_common .pb-0 {
+    padding-bottom: 0
+}
+
+.build_common .pb-16 {
+    padding-bottom: 4rem
+}
+
+.build_common .pb-2 {
+    padding-bottom: .5rem
+}
+
+.build_common .pl-4 {
+    padding-left: 1rem
+}
+
+.build_common .pt-2 {
+    padding-top: .5rem
+}
+
+.build_common .pt-3 {
+    padding-top: .75rem
+}
+
+.build_common .pt-4 {
+    padding-top: 1rem
+}
+
+.build_common .text-left {
+    text-align: left
+}
+
+.build_common .text-center {
+    text-align: center
+}
+
+.build_common .text-right {
+    text-align: right
+}
+
+.build_common .text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem
+}
+
+.build_common .text-base {
+    font-size: 1rem;
+    line-height: 1.5rem
+}
+
+.build_common .text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem
+}
+
+.build_common .text-sm {
+    font-size: .875rem;
+    line-height: 1.25rem
+}
+
+.build_common .font-bold {
+    font-weight: 700
+}
+
+.build_common .font-light {
+    font-weight: 300
+}
+
+.build_common .font-medium {
+    font-weight: 500
+}
+
+.build_common .font-semibold {
+    font-weight: 600
+}
+
+.build_common .leading-tight {
+    line-height: 1.25
+}
+
+.build_common .text-\[\#333\] {
+    --tw-text-opacity: 1;
+    color: rgb(51 51 51 / var(--tw-text-opacity))
+}
+
+.build_common .text-\[\#555\] {
+    --tw-text-opacity: 1;
+    color: rgb(85 85 85 / var(--tw-text-opacity))
+}
+
+.build_common .text-black {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity))
+}
+
+.build_common .text-gray-500 {
+    --tw-text-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-text-opacity))
+}
+
+.build_common .text-gray-600 {
+    --tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity))
+}
+
+.build_common .text-gray-700 {
+    --tw-text-opacity: 1;
+    color: rgb(55 65 81 / var(--tw-text-opacity))
+}
+
+.build_common .text-gray-900 {
+    --tw-text-opacity: 1;
+    color: rgb(17 24 39 / var(--tw-text-opacity))
+}
+
+.build_common .text-red-500 {
+    --tw-text-opacity: 1;
+    color: rgb(239 68 68 / var(--tw-text-opacity))
+}
+
+.build_common .text-red-700 {
+    --tw-text-opacity: 1;
+    color: rgb(185 28 28 / var(--tw-text-opacity))
+}
+
+.build_common .text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity))
+}
+
+.build_common .shadow-lg {
+    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+}
+
+.build_common .duration-300 {
+    transition-duration: .3s
+}
+
+.build_common .focus\:outline-none:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px
+}
+
+@media (min-width: 768px) {
+
+.build_common .md\:mb-12 {
+    margin-bottom: 3rem
+}
+
+.build_common .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+}
+
+.build_common .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem
+}
+
+.build_common .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem
+}
+}
+
+@media (min-width: 1280px) {
+
+.build_common .xl\:pt-2 {
+    padding-top: .5rem
+}
+}
+
+.item_card_product {
+    border: 1px solid #f06434 !important;
+    padding: 14px 9px !important;
+    border-radius: 10px;
+    transition: all .5s ease-in-out;
+}
+
+.item_card_product:hover {
+    background:#dc37431a;
+}
+
+.item_card_product:has(input:checked) {
+    border: 2px solid #f06434 !important;
+    background: #FFEC0017 !important;
+}
+.style_5_product_card_items_area {
+    gap: 10px;
+}
+.item_card_product .product_title_5 ,.prodcut_price_5{
+    color: #404040;
+    font-weight: 400;
+}
+.product_title_offer {
+    font-size: 14px;
+    font-weight: 400;
+    color: #404040;
+    opacity: .7;
+}
+.product_info_5 {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.item_card_product .select_product {
+    accent-color: #f06434;
+    width: 20px;
+    height: 20px;
+}
+.item_card_product .del_price {
+    color: #f06434;
+    opacity: .7;
+}

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modhuzira Suite | Abandoned Leads</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jsonwebtoken@9.0.2/+esm"></script>
+
+    <style>
+        :root {
+            /* Inherited from Admin Dashboard */
+            --bg-app: #F8FAFC;
+            --sidebar-bg: #09261E;
+            --surface-card: #FFFFFF;
+            --text-heading: #0F172A;
+            --text-body: #334155;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            
+            --primary: #0A3A2F;
+            --primary-hover: #0D4D3E;
+            --accent-gold: #D97706;
+            --danger: #DC2626;
+
+            /* Premium Status Palette */
+            --bg-pending: #FEF3C7;       --txt-pending: #B45309;
+            --bg-confirmed: #D1FAE5;     --txt-confirmed: #065F46;
+            --bg-cancelled: #FEE2E2;     --txt-cancelled: #991B1B;
+
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif; }
+        body { background-color: var(--bg-app); color: var(--text-body); -webkit-font-smoothing: antialiased; }
+
+        /* 🔐 SECURITY SCREEN GATEWAY */
+        #securityAuthGate { position: fixed; inset: 0; background: #041411; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; transition: var(--transition-smooth); }
+        .auth-card { background: #FFFFFF; width: 100%; max-width: 420px; padding: 40px; border-radius: var(--radius-lg); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); text-align: center; }
+        .auth-logo { font-size: 26px; font-weight: 800; color: var(--primary); margin-bottom: 8px; letter-spacing: -0.5px; }
+        .auth-logo span { color: var(--accent-gold); }
+        .auth-subtitle { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+        .auth-input-group { position: relative; margin-bottom: 20px; }
+        .auth-input { width: 100%; padding: 14px; border: 1px solid var(--border-color); border-radius: var(--radius-md); font-size: 18px; text-align: center; font-weight: 700; letter-spacing: 6px; outline: none; transition: var(--transition-smooth); }
+        .auth-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(10,58,47,0.1); }
+        .auth-btn { width: 100%; background: var(--primary); color: white; border: none; padding: 14px; font-size: 15px; font-weight: 700; border-radius: var(--radius-md); cursor: pointer; transition: var(--transition-smooth); }
+        .auth-btn:hover:not(:disabled) { background: var(--primary-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(10, 58, 47, 0.2); }
+        .auth-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+        .auth-error { color: var(--danger); font-size: 12px; margin-top: 10px; font-weight: 600; display: none; background: #FEE2E2; padding: 8px; border-radius: 6px; }
+
+        /* 🏢 APP CONTENT FRAMEWORK LAYOUT */
+        .dashboard-wrapper { display: none; min-height: 100vh; }
+        
+        /* Sidebar */
+        .sidebar { width: 260px; background: var(--sidebar-bg); color: #F1F5F9; padding: 30px 20px; display: flex; flex-direction: column; position: fixed; height: 100vh; z-index: 1000; box-shadow: 4px 0 24px rgba(0,0,0,0.05); }
+        .brand-title { font-size: 22px; font-weight: 800; color: #FFFFFF; margin-bottom: 40px; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+        .brand-title span { color: var(--accent-gold); }
+        .nav-list { display: flex; flex-direction: column; gap: 8px; flex-grow: 1; list-style: none; }
+        .nav-link { display: flex; align-items: center; gap: 12px; padding: 14px 16px; color: #94A3B8; text-decoration: none; border-radius: var(--radius-md); font-weight: 600; font-size: 14px; transition: var(--transition-smooth); }
+        .nav-link:hover, .nav-link.active { background: rgba(255, 255, 255, 0.08); color: #FFFFFF; }
+        .nav-link.active { color: #FFFFFF; background: rgba(255, 255, 255, 0.1); border-left: 4px solid var(--accent-gold); }
+        .logout-section { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 15px; }
+        .logout-btn { background: transparent; border: none; color: #FDA4AF; font-weight: 600; cursor: pointer; font-size: 14px; padding: 12px 16px; display: flex; align-items: center; gap: 8px; width: 100%; border-radius: var(--radius-md); transition: var(--transition-smooth); text-align: left; }
+        .logout-btn:hover { background: rgba(239, 68, 68, 0.1); color: #FECDD3; }
+
+        .workspace { flex-grow: 1; padding: 40px; margin-left: 260px; width: calc(100% - 260px); padding-bottom: 60px; }
+        
+        /* Welcome Header */
+        .welcome-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 35px; background: var(--surface-card); padding: 24px 30px; border-radius: var(--radius-lg); box-shadow: var(--shadow-subtle); border: 1px solid var(--border-color); }
+        .welcome-text h1 { font-size: 26px; font-weight: 800; color: var(--text-heading); letter-spacing: -0.5px; }
+        .welcome-text p { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
+        .sync-btn { background: var(--primary); color: white; border: none; padding: 12px 20px; border-radius: var(--radius-md); font-weight: 700; font-size: 14px; cursor: pointer; transition: var(--transition-smooth); display: flex; align-items: center; gap: 8px; }
+        .sync-btn:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(10,58,47,0.2); }
+
+        /* 📊 KPI CARDS */
+        .kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px; }
+        .kpi-card { background: var(--surface-card); padding: 24px; border-radius: var(--radius-lg); box-shadow: var(--shadow-subtle); border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 8px; position: relative; overflow: hidden; transition: var(--transition-smooth); border-left: 4px solid var(--border-color); }
+        .kpi-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+        .kpi-title { font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .kpi-value { font-size: 32px; font-weight: 800; color: var(--text-heading); }
+        
+        .kpi-card.total { border-left-color: var(--primary); }
+        .kpi-card.pending { border-left-color: #F59E0B; }
+        .kpi-card.converted { border-left-color: #10B981; }
+
+        /* Controls Section */
+        .controls-row { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .search-box { flex: 1; min-width: 280px; position: relative; }
+        .search-input { width: 100%; padding: 14px 16px; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-size: 14px; background: var(--surface-card); transition: var(--transition-smooth); }
+        .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(10,58,47,0.1); outline: none; }
+        
+        .filter-buttons { display: flex; gap: 10px; }
+        .filter-btn { padding: 12px 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color); background: var(--surface-card); color: var(--text-muted); cursor: pointer; font-weight: 600; font-size: 14px; transition: var(--transition-smooth); }
+        .filter-btn.active, .filter-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+        /* 📋 DATA TABLE */
+        .table-section { background: var(--surface-card); border-radius: var(--radius-lg); box-shadow: var(--shadow-subtle); border: 1px solid var(--border-color); overflow-x: auto; margin-bottom: 30px; }
+        .data-table { width: 100%; border-collapse: collapse; text-align: left; }
+        .data-table th { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; padding: 16px 24px; border-bottom: 1px solid var(--border-color); background: #FAFAFA; }
+        .data-table td { padding: 16px 24px; font-size: 14px; border-bottom: 1px solid #F1F5F9; vertical-align: middle; }
+        .data-table tr:last-child td { border-bottom: none; }
+        .data-table tr:hover td { background-color: #F8FAFC; }
+
+        .timestamp { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+        .customer-name { font-weight: 700; color: var(--text-heading); display: block; }
+        .customer-phone { font-size: 12px; color: var(--text-muted); font-weight: 500; margin-top: 4px; display: block; }
+        .address-text { max-width: 200px; font-size: 13px; line-height: 1.5; color: var(--text-body); }
+
+        .status-badge { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 50px; font-size: 12px; font-weight: 700; text-transform: capitalize; }
+        .badge-pending { background: var(--bg-pending); color: var(--txt-pending); }
+        .badge-converted { background: var(--bg-confirmed); color: var(--txt-confirmed); }
+
+        /* Action elements */
+        .note-container { display: flex; flex-direction: column; gap: 8px; max-width: 220px; }
+        .note-textarea { width: 100%; height: 50px; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color); font-size: 12px; resize: none; background: #F8FAFC; transition: var(--transition-smooth); }
+        .note-textarea:focus { border-color: var(--primary); outline: none; background: white; }
+        .note-btn { align-self: flex-end; padding: 6px 12px; background: #F1F5F9; color: var(--text-body); border: 1px solid var(--border-color); border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; transition: var(--transition-smooth); }
+        .note-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+        .actions-flex { display: flex; gap: 8px; }
+        .action-btn { padding: 8px 12px; border: none; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; transition: var(--transition-smooth); display: flex; align-items: center; gap: 5px; }
+        .btn-convert { background: #10B981; color: white; }
+        .btn-convert:hover { background: #059669; box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2); }
+        .btn-delete { background: #FEE2E2; color: #DC2626; }
+        .btn-delete:hover { background: #DC2626; color: white; }
+
+        /* 🪟 MODALS & TOASTS */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: var(--transition-smooth); }
+        .modal-overlay.show { opacity: 1; pointer-events: auto; }
+        
+        .modal-box { background: var(--surface-card); padding: 30px; border-radius: var(--radius-lg); max-width: 500px; width: 90%; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); transform: scale(0.95) translateY(10px); transition: var(--transition-smooth); }
+        .modal-overlay.show .modal-box { transform: scale(1) translateY(0); }
+        
+        .modal-title { font-size: 18px; font-weight: 800; color: var(--text-heading); margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 700; color: var(--text-body); margin-bottom: 8px; }
+        .form-control { width: 100%; padding: 12px 14px; border: 1px solid var(--border-color); border-radius: var(--radius-md); font-size: 14px; background: #F8FAFC; transition: var(--transition-smooth); }
+        .form-control:focus { border-color: var(--primary); outline: none; background: white; box-shadow: 0 0 0 3px rgba(10,58,47,0.1); }
+        
+        .modal-footer { display: flex; justify-content: flex-end; gap: 12px; margin-top: 25px; border-top: 1px solid var(--border-color); padding-top: 20px; }
+        .modal-btn { padding: 12px 20px; border-radius: var(--radius-md); font-weight: 700; cursor: pointer; border: none; font-size: 14px; transition: var(--transition-smooth); }
+        .btn-cancel { background: #F1F5F9; color: var(--text-body); }
+        .btn-cancel:hover { background: #E2E8F0; }
+        .btn-submit-order { background: var(--primary); color: white; }
+        .btn-submit-order:hover { background: var(--primary-hover); box-shadow: 0 4px 12px rgba(10,58,47,0.2); }
+        .btn-confirm-delete { background: var(--danger); color: white; }
+        .btn-confirm-delete:hover { background: #B91C1C; }
+
+        /* Toast Notifications */
+        #toastContainer { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 10px; z-index: 9999; }
+        .toast { min-width: 250px; padding: 16px 20px; border-radius: var(--radius-md); font-size: 14px; font-weight: 600; box-shadow: var(--shadow-card); opacity: 0; transform: translateY(20px); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; align-items: center; gap: 12px; }
+        .toast.show { opacity: 1; transform: translateY(0); }
+        .toast.success { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
+        .toast.error { background: #FEF2F2; color: #991B1B; border: 1px solid #FECACA; }
+        .toast.info { background: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; }
+
+        .text-center { text-align: center; }
+        .loading-tr { font-weight: 600; color: var(--text-muted); padding: 40px !important; }
+    </style>
+</head>
+<body>
+
+<!-- Security Gateway -->
+<div id="securityAuthGate">
+    <div class="auth-card">
+        <div class="auth-logo">Modhuzira <span>Suite</span></div>
+        <p class="auth-subtitle">Verify PIN to access Enterprise Dashboard</p>
+        <form id="adminGateForm" onsubmit="handleGateVerification(event)">
+            <div class="auth-input-group">
+                <input type="password" id="gatePinInput" class="auth-input" maxlength="6" placeholder="••••••" required autocomplete="current-password">
+            </div>
+            <button type="submit" id="gateSubmitBtn" class="auth-btn">Unlock Console 🔓</button>
+            <p id="gateErrorMessage" class="auth-error">Incorrect PIN! Please try again.</p>
+        </form>
+    </div>
+</div>
+
+<div class="dashboard-wrapper" id="dashboardApplicationFrame">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="brand-title">Modhuzira <span>Suite</span></div>
+        <ul class="nav-list">
+            <li><a href="admin.html" class="nav-link">🏠 Dashboard Overview</a></li>
+            <li><a href="orders.html" class="nav-link">📦 Order Logistics</a></li>
+            <li><a href="abonded.html" class="nav-link active">🛒 Abandoned Leads</a></li>
+            <li><a href="money.html" class="nav-link">💰 Cashflow & Revenue</a></li>
+        </ul>
+        <div class="logout-section">
+            <button class="logout-btn" onclick="executeSecureLogout()">🔒 Lock System</button>
+        </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="workspace">
+        
+        <header class="welcome-header">
+            <div class="welcome-text">
+                <h1>Abandoned Leads 🛒</h1>
+                <p>Track, manage, and recover incomplete checkouts.</p>
+            </div>
+            <button class="sync-btn" onclick="fetchLeads()">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                Sync Data
+            </button>
+        </header>
+
+        <!-- Stats Panel -->
+        <div class="kpi-grid">
+            <div class="kpi-card total">
+                <span class="kpi-title">Total Abandoned</span>
+                <strong class="kpi-value" id="stat-total">0</strong>
+            </div>
+            <div class="kpi-card pending">
+                <span class="kpi-title">Pending Follow-up</span>
+                <strong class="kpi-value" id="stat-pending">0</strong>
+            </div>
+            <div class="kpi-card converted">
+                <span class="kpi-title">Successfully Converted</span>
+                <strong class="kpi-value" id="stat-converted">0</strong>
+            </div>
+        </div>
+
+        <!-- Controls Filter and Search -->
+        <div class="controls-row">
+            <div class="search-box">
+                <input type="text" id="searchInput" oninput="filterLeads()" class="search-input" placeholder="🔍 Search by name or phone number...">
+            </div>
+            <div class="filter-buttons">
+                <button onclick="setActiveFilter('all')" class="filter-btn active" id="btn-all">All Leads</button>
+                <button onclick="setActiveFilter('pending')" class="filter-btn" id="btn-pending">Pending</button>
+                <button onclick="setActiveFilter('converted')" class="filter-btn" id="btn-converted">Converted</button>
+            </div>
+        </div>
+
+        <!-- Leads Data Table -->
+        <div class="table-section">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Customer Info</th>
+                        <th>Delivery Address</th>
+                        <th>Qty</th>
+                        <th>Status</th>
+                        <th>Internal Note</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="leadsTableBody">
+                    <tr>
+                        <td colspan="7" class="text-center loading-tr">Loading data, please wait...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+</div>
+
+<!-- Convert Order Modal -->
+<div class="modal-overlay" id="conversionModal">
+    <div class="modal-box">
+        <div class="modal-title">Convert to Main Order</div>
+        
+        <input type="hidden" id="modal-lead-phone">
+        
+        <div class="form-group">
+            <label>Customer Name</label>
+            <input type="text" id="modal-name" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" id="modal-phone" class="form-control" readonly>
+        </div>
+        
+        <div class="form-group">
+            <label>Delivery Address</label>
+            <input type="text" id="modal-address" class="form-control">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+                <label>Quantity (Kg)</label>
+                <input type="number" id="modal-quantity" class="form-control" oninput="calculateTotalAmount()">
+            </div>
+            <div class="form-group">
+                <label>Unit Price (BDT)</label>
+                <input type="number" id="modal-unit-price" class="form-control" value="750" oninput="calculateTotalAmount()">
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="form-group">
+                <label>Shipping Cost (BDT)</label>
+                <select id="modal-shipping" class="form-control" onchange="calculateTotalAmount()">
+                    <option value="60">Inside Dhaka (60 BDT)</option>
+                    <option value="120">Outside Dhaka (120 BDT)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Total Price</label>
+                <input type="number" id="modal-total" class="form-control" readonly style="font-weight: 800; color: var(--primary);">
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button onclick="closeModal('conversionModal')" class="modal-btn btn-cancel">Cancel</button>
+            <button onclick="submitDirectOrder()" class="modal-btn btn-submit-order">Confirm & Place Order</button>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal-overlay" id="deleteModal">
+    <div class="modal-box" style="max-width: 400px; text-align: center;">
+        <div style="font-size: 40px; margin-bottom: 10px;">⚠️</div>
+        <div class="modal-title" style="border: none; padding-bottom: 0;">Confirm Deletion</div>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Are you sure you want to permanently delete this lead? This action cannot be undone.</p>
+        
+        <input type="hidden" id="delete-lead-phone">
+        
+        <div class="modal-footer" style="justify-content: center;">
+            <button onclick="closeModal('deleteModal')" class="modal-btn btn-cancel">Cancel</button>
+            <button onclick="executeDeleteLead()" class="modal-btn btn-confirm-delete">Delete Lead</button>
+        </div>
+    </div>
+</div>
+
+<!-- Logout Confirmation Modal -->
+<div class="modal-overlay" id="logoutModal">
+    <div class="modal-box" style="max-width: 400px; text-align: center;">
+        <div style="font-size: 40px; margin-bottom: 10px;">🔒</div>
+        <div class="modal-title" style="border: none; padding-bottom: 0;">Lock System</div>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Are you sure you want to lock the console?</p>
+        
+        <div class="modal-footer" style="justify-content: center;">
+            <button onclick="closeModal('logoutModal')" class="modal-btn btn-cancel">Cancel</button>
+            <button onclick="confirmLogout()" class="modal-btn btn-submit-order">Yes, Lock System</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notifications Container -->
+<div id="toastContainer"></div>
+
+<script>
+    /* =========================================
+       1. SECURITY & AUTHENTICATION GATEWAY
+       ========================================= */
+    window.addEventListener("DOMContentLoaded", () => {
+        const token = localStorage.getItem("adminToken");
+        if (token) {
+            bypassSecurityGate();
+        }
+    });
+
+    async function handleGateVerification(e) {
+        e.preventDefault();
+        const pinValue = document.getElementById("gatePinInput").value;
+        const submitBtn = document.getElementById("gateSubmitBtn");
+        const errorMsg = document.getElementById("gateErrorMessage");
+
+        submitBtn.innerText = "Verifying...";
+        submitBtn.disabled = true;
+        errorMsg.style.display = "none";
+
+        try {
+            const res = await fetch('/api/admin/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ pin: pinValue })
+            });
+
+            const data = await res.json();
+
+            if (data.success && data.token) {
+                localStorage.setItem("adminToken", data.token);
+                bypassSecurityGate();
+            } else {
+                errorMsg.style.display = "block";
+                document.getElementById("gatePinInput").value = "";
+            }
+        } catch (error) {
+            console.error(error);
+            showToast("Server connection error!", "error");
+        } finally {
+            submitBtn.innerText = "Unlock Console 🔓";
+            submitBtn.disabled = false;
+        }
+    }
+
+    function bypassSecurityGate() {
+        document.getElementById("securityAuthGate").style.opacity = "0";
+        setTimeout(() => {
+            document.getElementById("securityAuthGate").style.display = "none";
+            document.getElementById("dashboardApplicationFrame").style.display = "flex";
+            fetchLeads();
+        }, 300);
+    }
+
+    function executeSecureLogout() {
+        document.getElementById('logoutModal').classList.add('show');
+    }
+
+    function confirmLogout() {
+        localStorage.removeItem("adminToken");
+        window.location.reload();
+    }
+
+    /* =========================================
+       2. UI UTILITIES (TOASTS & MODALS)
+       ========================================= */
+    function showToast(message, type = 'info') {
+        const container = document.getElementById('toastContainer');
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        
+        let icon = 'ℹ️';
+        if(type === 'success') icon = '✅';
+        if(type === 'error') icon = '❌';
+
+        toast.innerHTML = `<span>${icon}</span> <span>${message}</span>`;
+        container.appendChild(toast);
+
+        // Animate in
+        setTimeout(() => toast.classList.add('show'), 10);
+
+        // Remove after 3 seconds
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 400);
+        }, 3000);
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).classList.remove('show');
+    }
+
+    /* =========================================
+       3. CORE ABANDONED LEADS LOGIC
+       ========================================= */
+    let allLeads = [];
+    let currentFilter = 'all';
+
+    async function fetchLeads() {
+        try {
+            const tableBody = document.getElementById('leadsTableBody');
+            tableBody.innerHTML = `<tr><td colspan="7" class="text-center loading-tr">Syncing leads database...</td></tr>`;
+            
+            const response = await fetch('/api/leads');
+            allLeads = await response.json();
+            
+            renderDashboard();
+            showToast("Data synced successfully.", "success");
+        } catch (error) {
+            console.error("Error loading leads:", error);
+            document.getElementById('leadsTableBody').innerHTML = 
+                `<tr><td colspan="7" class="text-center loading-tr" style="color:var(--danger)">⚠️ Error! Failed to connect to server.</td></tr>`;
+            showToast("Failed to fetch data.", "error");
+        }
+    }
+
+    function renderDashboard() {
+        calculateStats();
+        filterLeads();
+    }
+
+    function calculateStats() {
+        const total = allLeads.length;
+        const pending = allLeads.filter(l => l.status === 'pending' || !l.status).length;
+        const converted = allLeads.filter(l => l.status === 'converted').length;
+
+        document.getElementById('stat-total').innerText = total;
+        document.getElementById('stat-pending').innerText = pending;
+        document.getElementById('stat-converted').innerText = converted;
+    }
+
+    function setActiveFilter(filterType) {
+        currentFilter = filterType;
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById(`btn-${filterType}`).classList.add('active');
+        filterLeads();
+    }
+
+    function filterLeads() {
+        const searchText = document.getElementById('searchInput').value.toLowerCase().trim();
+        const tbody = document.getElementById('leadsTableBody');
+        tbody.innerHTML = '';
+
+        let filtered = allLeads;
+
+        if (currentFilter === 'pending') {
+            filtered = filtered.filter(l => l.status === 'pending' || !l.status);
+        } else if (currentFilter === 'converted') {
+            filtered = filtered.filter(l => l.status === 'converted');
+        }
+
+        if (searchText) {
+            filtered = filtered.filter(l => 
+                (l.name && l.name.toLowerCase().includes(searchText)) || 
+                (l.phone && l.phone.includes(searchText)) ||
+                (l.address && l.address.toLowerCase().includes(searchText))
+            );
+        }
+
+        if (filtered.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="7" class="text-center loading-tr">No abandoned leads found matching criteria.</td></tr>`;
+            return;
+        }
+
+        filtered.forEach(lead => {
+            const dateStr = lead.createdAt ? new Date(lead.createdAt).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : 'N/A';
+            const statusClass = (lead.status === 'converted') ? 'badge-converted' : 'badge-pending';
+            const statusText = (lead.status === 'converted') ? 'Converted' : 'Pending';
+            const currentNote = lead.note || '';
+
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><span class="timestamp">${dateStr}</span></td>
+                <td>
+                    <span class="customer-name">${lead.name || 'Unknown Name'}</span>
+                    <span class="customer-phone">${lead.phone || 'N/A'}</span>
+                </td>
+                <td><div class="address-text">${lead.address || 'No address provided'}</div></td>
+                <td style="font-weight:700;">${lead.quantity || 1}</td>
+                <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                <td>
+                    <div class="note-container">
+                        <textarea id="note-${lead.phone}" class="note-textarea" placeholder="Add follow-up note...">${currentNote}</textarea>
+                        <button onclick="saveLeadNote('${lead.phone}')" class="note-btn">Save Note</button>
+                    </div>
+                </td>
+                <td>
+                    <div class="actions-flex">
+                        ${lead.status !== 'converted' ? `
+                            <button onclick='openConversionModal(${JSON.stringify(lead)})' class="action-btn btn-convert">Convert</button>
+                        ` : ''}
+                        <button onclick="promptDeleteLead('${lead.phone}')" class="action-btn btn-delete">Delete</button>
+                    </div>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    async function saveLeadNote(phone) {
+        const noteText = document.getElementById(`note-${phone}`).value;
+        try {
+            const response = await fetch('/api/lead-note', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ phone, note: noteText })
+            });
+            const data = await response.json();
+            if (data.success) {
+                showToast("Note updated successfully!", "success");
+                const target = allLeads.find(l => l.phone === phone);
+                if(target) target.note = noteText;
+            } else {
+                showToast("Failed to update note.", "error");
+            }
+        } catch (err) {
+            showToast("Server error occurred.", "error");
+        }
+    }
+
+    /* DELETE LOGIC (Replaced Confirm) */
+    function promptDeleteLead(phone) {
+        document.getElementById('delete-lead-phone').value = phone;
+        document.getElementById('deleteModal').classList.add('show');
+    }
+
+    async function executeDeleteLead() {
+        const phone = document.getElementById('delete-lead-phone').value;
+        try {
+            const response = await fetch('/api/delete-lead', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ phone })
+            });
+            const data = await response.json();
+            if (data.success) {
+                allLeads = allLeads.filter(l => l.phone !== phone);
+                renderDashboard();
+                showToast("Lead permanently deleted.", "success");
+            } else {
+                showToast("Failed to delete lead.", "error");
+            }
+        } catch (err) {
+            showToast("Deletion process error.", "error");
+        } finally {
+            closeModal('deleteModal');
+        }
+    }
+
+    /* CONVERSION LOGIC */
+    function openConversionModal(lead) {
+        document.getElementById('modal-lead-phone').value = lead.phone;
+        document.getElementById('modal-name').value = lead.name || '';
+        document.getElementById('modal-phone').value = lead.phone || '';
+        document.getElementById('modal-address').value = lead.address || '';
+        document.getElementById('modal-quantity').value = lead.quantity || 1;
+        
+        calculateTotalAmount();
+        document.getElementById('conversionModal').classList.add('show');
+    }
+
+    function calculateTotalAmount() {
+        const qty = Number(document.getElementById('modal-quantity').value) || 0;
+        const unitPrice = Number(document.getElementById('modal-unit-price').value) || 0;
+        const shipping = Number(document.getElementById('modal-shipping').value) || 0;
+        
+        const subtotal = qty * unitPrice;
+        const finalTotal = subtotal + shipping;
+        
+        document.getElementById('modal-total').value = finalTotal;
+    }
+
+    async function submitDirectOrder() {
+        const leadPhone = document.getElementById('modal-lead-phone').value;
+        const name = document.getElementById('modal-name').value;
+        const phone = document.getElementById('modal-phone').value;
+        const address = document.getElementById('modal-address').value;
+        const quantity = Number(document.getElementById('modal-quantity').value);
+        const shippingCost = Number(document.getElementById('modal-shipping').value);
+        const totalAmount = Number(document.getElementById('modal-total').value);
+
+        if (!name || !phone || !address || !quantity) {
+            showToast("Please fill in all required fields!", "error");
+            return;
+        }
+
+        try {
+            // Step 1: Create Main Order
+            const orderResponse = await fetch('/api/orders', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name, phone, address, quantity, shippingCost, totalAmount
+                })
+            });
+
+            const orderResult = await orderResponse.json();
+
+            if (!orderResult.success) {
+                showToast(`Order entry failed: ${orderResult.message || 'Error'}`, "error");
+                return;
+            }
+
+            // Step 2: Mark as Converted
+            const convertResponse = await fetch('/api/mark-converted', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ phone: leadPhone })
+            });
+
+            const convertResult = await convertResponse.json();
+
+            if (convertResult.success) {
+                showToast("Success! Lead converted to Official Order.", "success");
+                closeModal('conversionModal');
+                fetchLeads(); 
+            } else {
+                showToast("Order saved but lead status update failed.", "error");
+            }
+
+        } catch (error) {
+            console.error("Conversion execution failed:", error);
+            showToast("System error during conversion.", "error");
+        }
+    }
+</script>
+
+</body>
+</html>
