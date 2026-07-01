@@ -106,358 +106,373 @@ src="https://www.facebook.com/tr?id=1030007246074965&ev=PageView&noscript=1"
 
         
 <form id="orderForm">
+        <table class="mb-10 w-full border bg-[#f3f3f3] p-2 text-left table_responsive">
+            <thead>
+                <tr class="border-b">
+                    <th></th>
+                    <th class="p-2">Product</th>
+                    <th class="p-2 text-right">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="bg-white multi_pro_list">
+                    <td class="p-2">
+                        <label for="product_1803">
+                            <input data-index="0" checked="" type="checkbox" style="width: 20px; height: 20px;" class="listed_pro_inputs" value="1803" id="product_1803">
+                            <img src="./Skin Friendly Mini Shaver_files/small_270983684061779146607.webp" style="width: 60px;height: 60px;" class="inline-block h-[45px] w-[45px] rounded object-cover" alt="Skin Friendly Mini Shaver">
+                        </label>
+                    </td>
+                    <td class="p-2 relative">
+                        <label for="product_1803">
+                            <h3 class="product_title inline-block">Skin Friendly Mini Shaver</h3>
+                        </label>
+                        <br>
+                        <ul class="sp_variation_all npnls">
+                            <li>
+                                <input type="radio" name="attr_id_1803" checked="" id="av_id_3115" value="3115::990" class="co_radio listed_product_variation">
+                                <label for="av_id_3115" class="cartOptions">Black</label>
+                            </li>
+                        </ul>
+                        <input type="hidden" class="listed_product_data_id" value="3115">
+                        <input type="hidden" class="listed_product_price" value="990">
+                        <input type="hidden" name="totalAmount" class="listed_product_price_total" value="">
+                    </td>
+                    <td class="p-2 text-right action_btns">
+                        <p> ৳<span class="listed_product_price_text">990</span> </p>
+                        <div class="inline-block">
+                            <div class="flex overflow-hidden rounded text-center input_wrapper">
+                                <button class="custom_qty_btn ob h-8 w-8 cursor-pointer border border-[#dcdada] bg-[#f3f3f3] font-bold text-[#555]" type="button" data-type="minus">-</button>
+                                <input type="number" value="1" class="list_qty h-8 w-10 rounded-none border border-l-0 border-r-0 border-[#dcdada] px-1 text-center focus:outline-none" readonly="">
+                                <button class="custom_qty_btn h-8 w-8 cursor-pointer border border-[#dcdada] bg-[#f3f3f3] font-bold text-[#555]" type="button" data-type="plus">+</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-<table class="mb-10 w-full border bg-[#f3f3f3] p-2 text-left table_responsive">
-    <thead>
-        <tr class="border-b">
-            <th></th>
-            <th class="p-2">Product</th>
-            <th class="p-2 text-right">Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="bg-white multi_pro_list">
-            <td class="p-2">
-                <label for="product_1803">
-                    <input data-index="0" checked="" type="checkbox" style="width: 20px; height: 20px;" class="listed_pro_inputs" value="1803" id="product_1803">
-                    <img src="./Skin Friendly Mini Shaver_files/small_270983684061779146607.webp" style="width: 60px;height: 60px;" class="inline-block h-[45px] w-[45px] rounded object-cover" alt="Skin Friendly Mini Shaver">
-                </label>
-            </td>
-            <td class="p-2 relative">
-                <label for="product_1803">
-                    <h3 class="product_title inline-block">Skin Friendly Mini Shaver</h3>
-                </label>
-                <br>
-                <ul class="sp_variation_all npnls">
-                    <li>
-                        <input type="radio" name="attr_id_1803" checked="" id="av_id_3115" value="3115::990" class="co_radio listed_product_variation">
-                        <label for="av_id_3115" class="cartOptions">Black</label>
-                    </li>
-                </ul>
-                <input type="hidden" class="listed_product_data_id" value="3115">
-                <input type="hidden" class="listed_product_price" value="990">
-                <input type="hidden" name="totalAmount" class="listed_product_price_total" value="">
-            </td>
-            <td class="p-2 text-right action_btns">
-                <p> ৳<span class="listed_product_price_text">990</span> </p>
-                <div class="inline-block">
-                    <div class="flex overflow-hidden rounded text-center input_wrapper">
-                        <button class="custom_qty_btn ob h-8 w-8 cursor-pointer border border-[#dcdada] bg-[#f3f3f3] font-bold text-[#555]" type="button" data-type="minus">-</button>
-                        <input type="number" value="1" class="list_qty h-8 w-10 rounded-none border border-l-0 border-r-0 border-[#dcdada] px-1 text-center focus:outline-none" readonly="">
-                        <button class="custom_qty_btn h-8 w-8 cursor-pointer border border-[#dcdada] bg-[#f3f3f3] font-bold text-[#555]" type="button" data-type="plus">+</button>
+        <input type="hidden" name="totalAmount" id="totalAmountInput" value="990">
+        <input type="hidden" name="quantity" id="quantityInput" value="1">
+        <input type="hidden" class="variation_style" value="Style 2">
+        <input type="hidden" class="inside_dhaka_charge_hidden" value="0">
+        <input type="hidden" class="outside_dhaka_charge_hidden" value="0">
+        <input type="hidden" name="inv_id" value="124">
+        <input type="hidden" name="landing_id" value="435">
+        <input type="hidden" class="delivery_charge_inpout" name="delivery_charge" value="0">
+
+        <div class="grid grid-cols-1 gap-x-10 gap-y-2 md:grid-cols-2 billing_details">
+            <div>
+                <h3 class="mb-4 text-[24px] font-semibold text-[#333] md:text-4xl">Billing details</h3>
+                <div id="form-inputs">
+                    <input type="hidden" name="_token" value="gpYatXmf0aeP3gxdui825io1IW38wyw23RnlRHkE">
+                    <input type="hidden" class="uu_id_hidden uu_id" name="uu_id" value="0989ac36-a07a-42da-bb14-e0f53a2e9b78">
+                    <input type="hidden" class="landing_id" name="landing_id" value="435">
+                    <div class="mb-4">
+                        <label class="block text-sm mb-2 font-semibold">আপনার নাম লিখুন <span class="text-red-700">*</span></label>
+                        <input class="shipping_name appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none" type="text" name="name" placeholder="আপনার সম্পূর্ণ নাম" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm mb-2 font-semibold">আপনার মোবাইল নাম্বারটি লিখুন <span class="text-red-700">*</span></label>
+                        <input id="phoneInput" class="shipping_mobile_number appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none" type="tel" name="phone" placeholder="আপনার ১১ ডিজিটের মোবাইল নাম্বারটি লিখুন (যেমন: 017xxxxxxxx)" required maxlength="11" pattern="^01[3-9]\d{8}$">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm mb-2 font-semibold">আপনার ঠিকানা লিখুন <span class="text-red-700">*</span></label>
+                        <input class="shipping_address appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none" type="text" name="address" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন" required>
                     </div>
                 </div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+                <input type="hidden" name="variations" class="multi_product_variations" value="3115">
+                <input type="hidden" name="quantity" class="multi_product_quantities" value="1">
+                
+                <script>
+                default_sales_price = 990;
+                default_content_ids = [1803];
+                default_contents = [{ id: 1803, quantity: 1 }];
+                </script>
+            </div>
 
-<input type="hidden" name="totalAmount" id="totalAmountInput" value="990">
-<input type="hidden" name="quantity" id="quantityInput" value="1">
-<input type="hidden" class="variation_style" value="Style 2">
-<input type="hidden" class="inside_dhaka_charge_hidden" value="0">
-<input type="hidden" class="outside_dhaka_charge_hidden" value="0">
-<input type="hidden" name="inv_id" value="124">
-<input type="hidden" name="landing_id" value="435">
-<input type="hidden" class="delivery_charge_inpout" name="delivery_charge" value="0">
-
-<div class="grid grid-cols-1 gap-x-10 gap-y-2 md:grid-cols-2 billing_details">
-    <div>
-        <h3 class="mb-4 text-[24px] font-semibold text-[#333] md:text-4xl">Billing details</h3>
-        <div id="form-inputs">
-            <input type="hidden" name="_token" value="gpYatXmf0aeP3gxdui825io1IW38wyw23RnlRHkE">
-            <input type="hidden" class="uu_id_hidden uu_id" name="uu_id" value="0989ac36-a07a-42da-bb14-e0f53a2e9b78">
-            <input type="hidden" class="landing_id" name="landing_id" value="435">
-            <div class="mb-4">
-                <label class="block text-sm mb-2 font-semibold">আপনার নাম লিখুন <span class="text-red-700">*</span></label>
-                <input class="shipping_name appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none" type="text" name="name" placeholder="আপনার সম্পূর্ণ নাম" required>
-            </div>
-            <div class="mb-4">
-                <label class="block text-sm mb-2 font-semibold">আপনার মোবাইল নাম্বারটি লিখুন <span class="text-red-700">*</span></label>
-<input id="phoneInput" class="shipping_mobile_number appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none" type="number" name="phone" placeholder="আপনার ১১ ডিজিটের মোবাইল নাম্বারটি লিখুন" required>
-            </div>
-            <div class="mb-4">
-                <label class="block text-sm mb-2 font-semibold">আপনার ঠিকানা লিখুন <span class="text-red-700">*</span></label>
-                <input class="shipping_address appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:shadow-outline focus:outline-none" type="text" name="address" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন" required>
-            </div>
-        </div>
-        <input type="hidden" name="variations" class="multi_product_variations" value="3115">
-        <input type="hidden" name="quantity" class="multi_product_quantities" value="1">
-        
-        <script>
-        default_sales_price = 990;
-        default_content_ids = [1803];
-        default_contents = [{ id: 1803, quantity: 1 }];
-        </script>
-    </div>
-
-    <div>
-        <h3 class="mb-4 text-[24px] font-semibold text-[#333] md:text-4xl">Your order</h3>
-        <input type="hidden" name="p_type" class="product_type" value="multiple">
-        <div class="py-2 pb-0 text-gray-600 xl:pt-2">
-            <div class="font-lite flex justify-between pb-2 text-base">
-                <p>Subtotal</p>
-                <p>৳<span class="product_price_sub">990</span></p>
-            </div>
-            <div class="my-3 flex justify-between text-base font-medium">
-                <p class="pt-4">Shipping</p>
-                <p class="pt-3 delivery_charge_free_or_price">Free</p>
-            </div>
-            <div class="flex justify-between pt-2 text-base font-semibold text-black">
-                <p>Total</p>
-                <p>৳<span class="grand_total">990</span></p>
-            </div>
-            <p class="mt-5">Cash on Delivery</p>
-            <p class="bg-[#eaeaea] px-2 py-2">পণ্য হাতে পেয়ে মূল্য পরিশোধ করুন।</p>
-            <div class="mb-3 mt-6 md:mb-12">
-                <button type="submit" id="submitOrderBtn" class="lp_order_btn mt-6 block w-full rounded-xl border-[4px] border-[#044C1C] bg-[#f2d469] px-10 py-3 text-2xl font-semibold text-black shadow-lg duration-300">
-                Place Order BDT ৳<span class="grand_total_btn">990</span>
-                </button>
+            <div>
+                <h3 class="mb-4 text-[24px] font-semibold text-[#333] md:text-4xl">Your order</h3>
+                <input type="hidden" name="p_type" class="product_type" value="multiple">
+                <div class="py-2 pb-0 text-gray-600 xl:pt-2">
+                    <div class="font-lite flex justify-between pb-2 text-base">
+                        <p>Subtotal</p>
+                        <p>৳<span class="product_price_sub">990</span></p>
+                    </div>
+                    <div class="my-3 flex justify-between text-base font-medium">
+                        <p class="pt-4">Shipping</p>
+                        <p class="pt-3 delivery_charge_free_or_price">Free</p>
+                    </div>
+                    <div class="flex justify-between pt-2 text-base font-semibold text-black">
+                        <p>Total</p>
+                        <p>৳<span class="grand_total">990</span></p>
+                    </div>
+                    <p class="mt-5">Cash on Delivery</p>
+                    <p class="bg-[#eaeaea] px-2 py-2">পণ্য হাতে পেয়ে মূল্য পরিশোধ করুন।</p>
+                    <div class="mb-3 mt-6 md:mb-12">
+                        <button type="submit" id="submitOrderBtn" class="lp_order_btn mt-6 block w-full rounded-xl border-[4px] border-[#044C1C] bg-[#f2d469] px-10 py-3 text-2xl font-semibold text-black shadow-lg duration-300">
+                        Place Order BDT ৳<span class="grand_total_btn">990</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </form>
 
-</form>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    // TARGET THE NEW CLASS TO PREVENT DOUBLE-BINDING WITH EXTERNAL SCRIPTS
-    const quantityButtons = document.querySelectorAll(".custom_qty_btn");
-    
-    quantityButtons.forEach(button => {
-        button.addEventListener("click", function(e) {
-            e.preventDefault(); // Stop default button behavior
-            let wrapper = this.closest(".input_wrapper");
-            let input = wrapper.querySelector(".list_qty");
-            let currentQty = parseInt(input.value) || 1;
-
-            if (this.getAttribute("data-type") === "plus") {
-                input.value = currentQty + 1;
-            } else if (this.getAttribute("data-type") === "minus" && currentQty > 1) {
-                input.value = currentQty - 1;
-            }
-            
-            syncOrderData();
-        });
-    });
-
-    document.querySelectorAll(".listed_pro_inputs").forEach(checkbox => {
-        checkbox.addEventListener("change", syncOrderData);
-    });
-
-    function syncOrderData() {
-        let qty = 0;
-        let total = 0;
-
-        document.querySelectorAll(".multi_pro_list").forEach(row => {
-            let price = parseInt(row.querySelector(".listed_product_price").value) || 0;
-            let q = parseInt(row.querySelector(".list_qty").value) || 0;
-            let itemTotalPrice = price * q;
-            
-            let rowPriceText = row.querySelector(".listed_product_price_text");
-            if (rowPriceText) {
-                rowPriceText.innerText = itemTotalPrice;
-            }
-
-            if (row.querySelector(".listed_pro_inputs")?.checked) {
-                qty += q;
-                total += itemTotalPrice;
-            }
-        });
-
-        document.getElementById("quantityInput").value = qty;
-        document.getElementById("totalAmountInput").value = total;
-
-        document.querySelectorAll(".grand_total").forEach(el => el.innerText = total);
-        document.querySelector(".grand_total_btn").innerText = total;
-        document.querySelector(".product_price_sub").innerText = total;
-    }
-
-    setInterval(syncOrderData, 400);
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('orderForm');
-    const phoneInput = document.getElementById('phoneInput');
-    let isSubmitting = false; // NEW STATE LOCK FOR DUPLICATE PROTECTION
-
-    function getCookie(name) {
-        let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-        return match ? match[2] : undefined;
-    }
-
-    // Save Abandoned Lead on Blur
-    phoneInput.addEventListener('blur', async () => {
-        const phone = phoneInput.value;
-        if (!phone || phone.length < 11) return;
-
-        const name = document.querySelector('input[name="name"]').value;
-        const address = document.querySelector('input[name="address"]').value;
-        const quantity = document.getElementById('quantityInput').value;
-        const total = document.getElementById('totalAmountInput').value;
-
-        try {
-            await fetch('/save-lead', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, phone, address, quantity, total })
-            });
-        } catch (err) {
-            console.error('Lead save error:', err);
-        }
-    });
-
-    // Form Interceptor
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const quantityButtons = document.querySelectorAll(".custom_qty_btn");
         
-        // 🚨 PREVENT DOUBLE CLICK SUBMISSIONS IMMEDIATELY
-        if (isSubmitting) return; 
-        
-        const submitBtn = document.getElementById('submitOrderBtn');
-        const quantity = parseInt(document.getElementById('quantityInput').value) || 0;
-        const totalAmount = parseInt(document.getElementById('totalAmountInput').value) || 0;
+        quantityButtons.forEach(button => {
+            button.addEventListener("click", function(e) {
+                e.preventDefault(); 
+                let wrapper = this.closest(".input_wrapper");
+                let input = wrapper.querySelector(".list_qty");
+                let currentQty = parseInt(input.value) || 1;
 
-        if (quantity <= 0 || totalAmount <= 0) {
-            if (typeof Swal !== 'undefined') {
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'দুঃখিত!',
-                    text: 'আপনার কার্ট খালি বা কোনো পণ্য সিলেক্ট করা হয়নি।'
-                });
-            } else {
-                alert("দুঃখিত! আপনার কার্ট খালি বা কোনো পণ্য সিলেক্ট করা হয়নি।");
-            }
-            return;
-        }
-
-        // LOCK THE FORM
-        isSubmitting = true;
-        submitBtn.disabled = true;
-        submitBtn.innerText = "Processing...";
-
-
-
-
-        const name = document.querySelector('input[name="name"]').value;
-        const phone = phoneInput.value;
-        const address = document.querySelector('input[name="address"]').value;
-        const shippingCost = document.querySelector('.delivery_charge_inpout')?.value || 0;
-
-        try {
-            // 1. Order Creation
-            const orderRes = await fetch('/api/orders', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, phone, address, quantity, shippingCost, totalAmount })
-            });
-            const orderData = await orderRes.json();
-
-            if (!orderData.success) {
-                if (typeof Swal !== 'undefined') {
-                    Swal.fire({ icon: 'error', title: 'ব্যর্থ হয়েছে', text: orderData.message });
-                } else {
-                    alert(orderData.message);
+                if (this.getAttribute("data-type") === "plus") {
+                    input.value = currentQty + 1;
+                } else if (this.getAttribute("data-type") === "minus" && currentQty > 1) {
+                    input.value = currentQty - 1;
                 }
-                // UNLOCK ON FAILURE
-                isSubmitting = false;
-                submitBtn.disabled = false;
-                submitBtn.innerText = `Place Order BDT ৳${totalAmount}`;
+                
+                syncOrderData();
+            });
+        });
+
+        document.querySelectorAll(".listed_pro_inputs").forEach(checkbox => {
+            checkbox.addEventListener("change", syncOrderData);
+        });
+
+        function syncOrderData() {
+            let qty = 0;
+            let total = 0;
+
+            document.querySelectorAll(".multi_pro_list").forEach(row => {
+                let price = parseInt(row.querySelector(".listed_product_price").value) || 0;
+                let q = parseInt(row.querySelector(".list_qty").value) || 0;
+                let itemTotalPrice = price * q;
+                
+                let rowPriceText = row.querySelector(".listed_product_price_text");
+                if (rowPriceText) {
+                    rowPriceText.innerText = itemTotalPrice;
+                }
+
+                if (row.querySelector(".listed_pro_inputs")?.checked) {
+                    qty += q;
+                    total += itemTotalPrice;
+                }
+            });
+
+            document.getElementById("quantityInput").value = qty;
+            document.getElementById("totalAmountInput").value = total;
+
+            document.querySelectorAll(".grand_total").forEach(el => el.innerText = total);
+            document.querySelector(".grand_total_btn").innerText = total;
+            document.querySelector(".product_price_sub").innerText = total;
+        }
+
+        setInterval(syncOrderData, 400);
+    });
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('orderForm');
+        const phoneInput = document.getElementById('phoneInput');
+        let isSubmitting = false;
+
+        function getCookie(name) {
+            let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? match[2] : undefined;
+        }
+
+        // Save Abandoned Lead on Blur
+        phoneInput.addEventListener('blur', async () => {
+            const phone = phoneInput.value.trim();
+            // Validate BD Phone Number Format for Abandoned Lead
+            const bdPhoneRegex = /^01[3-9]\d{8}$/;
+            if (!bdPhoneRegex.test(phone)) return;
+
+            const name = document.querySelector('input[name="name"]').value.trim();
+            const address = document.querySelector('input[name="address"]').value.trim();
+            const quantity = document.getElementById('quantityInput').value;
+            const total = document.getElementById('totalAmountInput').value;
+
+            try {
+                await fetch('/save-lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, phone, address, quantity, total })
+                });
+            } catch (err) {
+                console.error('Lead save error:', err);
+            }
+        });
+
+        // Form Interceptor
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (isSubmitting) return; 
+            
+            const submitBtn = document.getElementById('submitOrderBtn');
+            const quantity = parseInt(document.getElementById('quantityInput').value) || 0;
+            const totalAmount = parseInt(document.getElementById('totalAmountInput').value) || 0;
+            
+            // 1. TRIM INPUTS TO PREVENT BLANK SPACES
+            const name = document.querySelector('input[name="name"]').value.trim();
+            const phone = phoneInput.value.trim();
+            const address = document.querySelector('input[name="address"]').value.trim();
+            const shippingCost = document.querySelector('.delivery_charge_inpout')?.value || 0;
+
+            // 2. CHECK EMPTY CART
+            if (quantity <= 0 || totalAmount <= 0) {
+                showAlert('warning', 'দুঃখিত!', 'আপনার কার্ট খালি বা কোনো পণ্য সিলেক্ট করা হয়নি।');
                 return;
             }
 
-            // 2. Delete Abandoned Lead because order is successfully complete
-            try {
-                await fetch('/api/delete-lead', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ phone: phone })
-                });
-            } catch (leadDelErr) {
-                console.error("Lead cleanup error:", leadDelErr);
+            // 3. STRICT 11 DIGIT BD PHONE VALIDATION
+            const bdPhoneRegex = /^01[3-9]\d{8}$/;
+            if (!bdPhoneRegex.test(phone)) {
+                showAlert('error', 'ভুল নাম্বার!', 'দয়া করে সঠিক ১১ ডিজিটের মোবাইল নাম্বার দিন। (যেমন: 017xxxxxxxx)');
+                phoneInput.focus();
+                return;
             }
 
-            // 3. Dispatch Meta Conversion Event (FIXED: Separated Pixel from Server API)
-            const eventId = 'pur_' + Date.now();
-            
-            // Client Side Event
-            if (typeof fbq === 'function') {
+            // 4. FRONTEND DUPLICATE PROTECTION (Matches your Server's 5 min cooldown)
+            const lastOrderKey = `last_order_time`;
+            const lastOrderTime = localStorage.getItem(lastOrderKey);
+            if (lastOrderTime && (Date.now() - parseInt(lastOrderTime)) < (5 * 60 * 1000)) {
+                showAlert('warning', 'অপেক্ষা করুন!', 'আপনি ইতোমধ্যে একটি অর্ডার করেছেন 😊 ৫ মিনিট পরে আবার চেষ্টা করুন।');
+                return;
+            }
+
+            // LOCK THE FORM
+            isSubmitting = true;
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Processing...";
+
+            try {
+                // 1. Order Creation
+                const orderRes = await fetch('/api/orders', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, phone, address, quantity, shippingCost, totalAmount })
+                });
+                const orderData = await orderRes.json();
+
+                if (!orderData.success) {
+                    showAlert('error', 'ব্যর্থ হয়েছে', orderData.message);
+                    resetFormState(submitBtn, totalAmount);
+                    return;
+                }
+
+                // SECURE LOCAL STORAGE COOLDOWN AFTER SUCCESSFUL ORDER
+                localStorage.setItem(lastOrderKey, Date.now().toString());
+
+                // 2. Delete Abandoned Lead
                 try {
-                    fbq('track', 'Purchase', {
-                        value: totalAmount,
-                        currency: 'BDT',
-                        content_type: 'product',
-                        contents: [{ id: 1803, quantity: quantity }]
-                    }, { eventID: eventId });
-                } catch(e) { console.error(e); }
-            }
+                    await fetch('/api/delete-lead', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ phone: phone })
+                    });
+                } catch (leadDelErr) {
+                    console.error("Lead cleanup error:", leadDelErr);
+                }
 
-            // Server Side Event - ALWAYS FIRES regardless of Adblockers
-            try {
-                await fetch('/track-purchase', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        value: totalAmount,
-                        quantity: quantity,
-                        eventId: eventId,
-                        fbp: getCookie('_fbp'),
-                        fbc: getCookie('_fbc'),
-                        phone: phone,
-                        name: name
-                    })
-                });
-            } catch(trackErr) {
-                console.error("Tracking analytics failure:", trackErr);
+          // 3. Dispatch Meta Conversion Event (FIXED: Separated Pixel from Server API)
+            const eventId = 'purchase_' + Date.now();
+                
+                // Client Side Event (FIXED: num_items is now a variable, not a string)
+                if (typeof fbq === 'function') {
+                    try {
+                        fbq('track', 'Purchase', {
+                            value: totalAmount,
+                            currency: 'BDT',
+                            content_type: 'product',
+                                content_name: [
+        {
+            id: 'mini-shaver',
+            quantity: Number(quantity),
+            item_price: Number(totalAmount)
+        }
+    ],
+                            
 
-            }
+                            num_items: quantity // Removed quotes here
+                        }, { eventID: eventId });
+                    } catch(e) { console.error(e); }
+                }
 
+                // Server Side Event - ALWAYS FIRES
+                try {
+                    await fetch('/track-purchase', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            value: totalAmount,
+                            quantity: quantity,
+                            eventId: eventId,
+                            fbp: getCookie('_fbp'),
+                            fbc: getCookie('_fbc'),
+                            phone: phone,
+                            name: name
 
-            // 4. Finalizing Notification
-            if (typeof Swal !== 'undefined') {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'অর্ডার সফল হয়েছে!',
-                    text: 'আপনার অর্ডারটি আমরা পেয়েছি।',
-                    timer: 2500,
-                    showConfirmButton: false
-                }).then(() => {
+                        })
+                    });
+                } catch(trackErr) {
+                    console.error("Tracking analytics failure:", trackErr);
+                }
+
+                // 4. Finalizing Notification
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'অর্ডার সফল হয়েছে!',
+                        text: 'আপনার অর্ডারটি আমরা পেয়েছি।',
+                        timer: 2500,
+                        showConfirmButton: false
+                    }).then(() => {
+                        window.location.reload();
+                    });
+                } else {
+                    alert("অর্ডার সফলভাবে সম্পন্ন হয়েছে!");
                     window.location.reload();
-                });
-            } else {
-                alert("অর্ডার সফলভাবে সম্পন্ন হয়েছে!");
-                window.location.reload();
-            }
+                }
 
-        } catch (err) {
-            console.error(err);
-            alert("অর্ডার প্রসেস করতে ত্রুটি হয়েছে। আবার চেষ্টা করুন।");
-            // UNLOCK ON FATAL ERROR
+            } catch (err) {
+                console.error(err);
+                showAlert('error', 'ত্রুটি', 'অর্ডার প্রসেস করতে ত্রুটি হয়েছে। আবার চেষ্টা করুন।');
+                resetFormState(submitBtn, totalAmount);
+            }
+        });
+
+        // Helper Function for Alerts
+        function showAlert(icon, title, text) {
+            if (typeof Swal !== 'undefined') {
+                Swal.fire({ icon, title, text });
+            } else {
+                alert(`${title}\n${text}`);
+            }
+        }
+
+        // Helper Function to Reset Button State
+        function resetFormState(btn, total) {
             isSubmitting = false;
-            submitBtn.disabled = false;
-            submitBtn.innerText = `Place Order BDT ৳${totalAmount}`;
+            btn.disabled = false;
+            btn.innerText = `Place Order BDT ৳${total}`;
         }
     });
-});
-</script>
+    </script>
 
-<script src="./Skin Friendly Mini Shaver_files/jquery.min.js"></script>
-<script src="./Skin Friendly Mini Shaver_files/sweetalert2.all.min.js"></script>
-<script src="./Skin Friendly Mini Shaver_files/owl.carousel.min.js"></script>
-<script src="./Skin Friendly Mini Shaver_files/scrollIt.min.js"></script>
-<script src="./Skin Friendly Mini Shaver_files/main.js"></script>
-<script src="./Skin Friendly Mini Shaver_files/main(1).js"></script>
-<script src="./Skin Friendly Mini Shaver_files/swiper-bundle.min.js"></script>
-<script src="./Skin Friendly Mini Shaver_files/main(2).js"></script>
-
-
-
-<script src="./Skin Friendly Mini Shaver_files/select2.min.js"></script>
-<script src="./Skin Friendly Mini Shaver_files/builder.js"></script>
-
+    <script src="./Skin Friendly Mini Shaver_files/jquery.min.js"></script>
+    <script src="./Skin Friendly Mini Shaver_files/sweetalert2.all.min.js"></script>
+    <script src="./Skin Friendly Mini Shaver_files/owl.carousel.min.js"></script>
+    <script src="./Skin Friendly Mini Shaver_files/scrollIt.min.js"></script>
+    <script src="./Skin Friendly Mini Shaver_files/swiper-bundle.min.js"></script>
+    <script src="./Skin Friendly Mini Shaver_files/select2.min.js"></script>
+    <script src="./Skin Friendly Mini Shaver_files/builder.js"></script>
 </body>
 
 </html>

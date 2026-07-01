@@ -427,8 +427,9 @@ app.post("/track-purchase", async (req, res) => {
                         currency: "BDT",
                         value: Number(value || 0),
                         num_items: Number(quantity || 1),
-                        content_name: "Modhuzira Honey",
-                        content_type: "product"
+                        content_name: "mini-shaver",
+                        content_type: "product",
+                        content_ids: ["mini-shaver"]
                     }
                 }
             ],
