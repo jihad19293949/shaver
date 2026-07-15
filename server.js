@@ -434,8 +434,8 @@ app.post("/track-purchase", async (req, res) => {
                 }
             ],
 
-            access_token: process.env.META_ACCESS_TOKEN,
-            test_event_code: "TEST34340"
+            access_token: process.env.META_ACCESS_TOKEN
+            
         };
 
         // =====================
