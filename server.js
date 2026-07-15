@@ -133,6 +133,17 @@ const AbandonedLead =
 
 
 
+
+const financeSchema = new mongoose.Schema({
+    productCost: { type: Number, default: 0 },     // প্রতি পিস পণ্যের কেনা দাম
+    adSpend: { type: Number, default: 0 },        // মোট বিজ্ঞাপন খরচ (Ad Spend)
+    packagingCost: { type: Number, default: 0 },    // প্রতি অর্ডারে প্যাকেজিং খরচ
+    rtoPenalty: { type: Number, default: 0 }       // রিটার্ন আসলে কুরিয়ার জরিমানা
+}, { timestamps: true });
+
+const Finance = mongoose.model('Finance', financeSchema);
+
+
 /* =========================================================================
    🔐 SECURITY & AUTHENTICATION API
    ========================================================================= */
@@ -234,6 +245,48 @@ app.get('/api/abandoned-orders', async (req, res) => {
     }
 
 });
+
+
+
+
+
+
+// Get Finance Settings
+app.get('/api/finance', async (req, res) => {
+    try {
+        let settings = await Finance.findOne();
+        if (!settings) {
+            settings = await Finance.create({});
+        }
+        res.json({ success: true, settings });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error loading finance data' });
+    }
+});
+
+// Update Finance Settings
+app.post('/api/finance', async (req, res) => {
+    try {
+        const { productCost, adSpend, packagingCost, rtoPenalty } = req.body;
+        let settings = await Finance.findOne();
+        if (!settings) {
+            settings = new Finance({ productCost, adSpend, packagingCost, rtoPenalty });
+        } else {
+            settings.productCost = productCost;
+            settings.adSpend = adSpend;
+            settings.packagingCost = packagingCost;
+            settings.rtoPenalty = rtoPenalty;
+        }
+        await settings.save();
+        res.json({ success: true, message: 'ফিনান্সিয়াল সেটিংস সফলভাবে সেভ হয়েছে!', settings });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Error saving finance data' });
+    }
+});
+
+
+
+
 
 app.post('/api/mark-converted', async (req, res) => {
     try {
